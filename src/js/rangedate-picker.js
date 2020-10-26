@@ -173,7 +173,7 @@ export default {
     },
     disabled: {
       type: String,
-      default: 'false'
+      default: 'false' // 'false','true','disabled
     }
   },
   data () {
@@ -186,7 +186,8 @@ export default {
       showMonth: false,
       activeMonthStart: this.startActiveMonth,
       activeYearStart: this.startActiveYear,
-      activeYearEnd: this.startActiveYear
+      activeYearEnd: this.startActiveYear,
+      disabledDiv: false
     }
   },
   created () {
@@ -247,7 +248,20 @@ export default {
   },
   methods: {
     toggleCalendar: function () {
-      if (this.disabled === 'true') return
+      // support check disabled from parent element with .vue class
+      const parentEl = this.$el.closest('.vue')
+      if (parentEl !== null) {
+        const diabledVal = parentEl.getAttribute('disabled')
+        if (diabledVal === 'true' || diabledVal === 'disabled') {
+          this.disabledDiv = true
+          return
+        }
+      }
+      if (this.disabled === 'true' || this.disabled === 'disabled') {
+        this.disabledDiv = true
+        return
+      }
+      this.disabledDiv = false
       if (this.isCompact) {
         this.showMonth = !this.showMonth
         return
