@@ -64,11 +64,11 @@ You can pass these below props to `<rangedate-picker :props="props"></rangedate-
 
 + **i18n**
 
-  *Description* : For text translation (currently: ID/EN)
+  *Description* : For text translation (currently: TW/EN)
 
   *Type* : String
 
-  *Default Value* : `'ID'`
+  *Default Value* : `'EN'`
 
 + **months**
 
@@ -209,6 +209,13 @@ You can pass these below props to `<rangedate-picker :props="props"></rangedate-
 + **righttoleft**
 
   *Description* : Set to `'true'` if you want datepicker shown align to `right`
+
+  *Type* : String
+
+  *Default Value* : `'false'`
++ **disabled**
+
+  *Description* : Set to `'true'` if you want datepicker disabled
 
   *Type* : String
 

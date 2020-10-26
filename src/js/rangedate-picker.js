@@ -170,6 +170,10 @@ export default {
     righttoleft: {
       type: String,
       default: 'false'
+    },
+    disabled: {
+      type: String,
+      default: 'false'
     }
   },
   data () {
@@ -243,6 +247,7 @@ export default {
   },
   methods: {
     toggleCalendar: function () {
+      if (this.disabled === 'true') return
       if (this.isCompact) {
         this.showMonth = !this.showMonth
         return
