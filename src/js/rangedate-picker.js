@@ -247,6 +247,10 @@ export default {
     }
   },
   methods: {
+    reset () {
+      this.isOpen = false
+      this.showMonth = false
+    },
     toggleCalendar: function () {
       // support check disabled from parent element with .vue class
       const parentEl = this.$el.closest('.vue')
