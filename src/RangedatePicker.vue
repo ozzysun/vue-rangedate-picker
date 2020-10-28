@@ -113,9 +113,9 @@
 .calendar {
   display: block;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  width: 700px;
+  /*width: 700px;*/
   font-size: 12px;
-  height: 300px;
+  /*height: 300px;*/
   box-shadow: -3px 4px 12px -1px #ccc;
   background: #fff;
   position: absolute;
@@ -146,7 +146,7 @@
 .calendar-wrap {
   display: inline-block;
   float: left;
-  width: 75%;
+  width: 90%;
   padding: 10px;
 }
 
@@ -163,8 +163,9 @@
 
 .calendar_month_left,
 .calendar_month_right {
-  float: left;
-  width: 43%;
+  /*float: left;
+  width: 43%;*/
+  width: 100% ;
   padding: 10px;
   margin: 5px;
 }
@@ -198,8 +199,8 @@
 
 .calendar_preset li {
   line-height: 2.6em;
-  width: auto;
-  display: block;
+  /*width: auto;*/
+  display: inline;
 }
 
 .calendar_days li:hover {
@@ -255,5 +256,25 @@ li.calendar_days_in-range {
   border: none;
   padding: 5px;
   font-size: 14px;
+}
+@media (min-width:700px){
+  .calendar-wrap {
+    width: 75%;
+  }
+  .calendar {
+    width: 700px;
+    font-size: 12px;
+    height: 300px;
+  }
+  .calendar_month_left,
+  .calendar_month_right {
+    float: left;
+    width: 43%;
+  }
+  .calendar_preset li {
+    line-height: 2.6em;
+    width: auto;
+    display: block;
+  }
 }
 </style>
