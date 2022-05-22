@@ -16,15 +16,25 @@ const availableShortDays = {
 const presetRangeLabel = {
   EN: {
     today: 'Today',
+    yesterday: 'Yestoday', // 昨天
+    thisWeek: 'This  Week', //本週
+    lastWeek: 'Last Week', // 上週
     thisMonth: 'This Month',
     lastMonth: 'Last Month',
+    thisYear: 'This Year', // 今年
+    lastYear: 'Last Year', // 去年
     lastSevenSays: 'Last 7 Days',
     lastThirtyDays: 'Last 30 Days'
   },
   TW: {
     today: '今天',
+    yesterday: '昨天', // 昨天
+    thisWeek: '本週', //本週
+    lastWeek: '上週', // 上週
     thisMonth: '本月',
     lastMonth: '上月',
+    thisYear: '今年', // 今年
+    lastYear: '上一年', // 上一年
     lastSevenDays: '前7天',
     lastThirtyDays: '最近30天'
   }
@@ -41,9 +51,7 @@ const defaultStyle = {
   daysSelected: 'calendar_days_selected',
   daysInRange: 'calendar_days_in-range',
   firstDate: 'calendar_month_left',
-  secondDate: 'calendar_month_right',
-  presetRanges: 'calendar_preset-ranges',
-  dateDisabled: 'calendar_days--disabled'
+  secondDate: 'cal本alendar_days--disabled'
 }
 
 const defaultPresets = function (i18n = defaultI18n) {
@@ -59,6 +67,18 @@ const defaultPresets = function (i18n = defaultI18n) {
           end: today
         }
       }
+    },
+    // 昨天
+    yesterday: function () {
+
+    },
+    // 本週
+    thisWeek: function () {
+
+    },
+    // 上週
+    lastWeek: function () {
+
     },
     thisMonth: function () {
       const n = new Date()
@@ -85,6 +105,14 @@ const defaultPresets = function (i18n = defaultI18n) {
           end: endMonth
         }
       }
+    },
+    // 今年
+    thisYear: function () {
+
+    },
+    // 上一年
+    lastYear: function () {
+
     },
     last7days: function () {
       const n = new Date()
