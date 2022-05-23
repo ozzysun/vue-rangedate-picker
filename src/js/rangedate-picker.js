@@ -17,7 +17,7 @@ const presetRangeLabel = {
   EN: {
     today: 'Today',
     yesterday: 'Yestoday', // 昨天
-    thisWeek: 'This  Week', //本週
+    thisWeek: 'This  Week', // 本週
     lastWeek: 'Last Week', // 上週
     thisMonth: 'This Month',
     lastMonth: 'Last Month',
@@ -29,7 +29,7 @@ const presetRangeLabel = {
   TW: {
     today: '今天',
     yesterday: '昨天', // 昨天
-    thisWeek: '本週', //本週
+    thisWeek: '本週', // 本週
     lastWeek: '上週', // 上週
     thisMonth: '本月',
     lastMonth: '上月',
@@ -87,8 +87,8 @@ const defaultPresets = function (i18n = defaultI18n) {
       const n = new Date()
       // 以今天的日期減掉getDay()星期幾,即為該週第1天(星期日)的日期
       const start = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay()))
-      const end = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay()+6))
-      return{
+      const end = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay() + 6))
+      return {
         label: 'presetRangeLabel[i18n].yestoday',
         active: false,
         dateRange: {
@@ -100,9 +100,9 @@ const defaultPresets = function (i18n = defaultI18n) {
     // 上週
     lastWeek: function () {
       const n = new Date()
-      const start = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay()-7))
-      const end = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay()+6-7))
-      return{
+      const start = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay() - 7))
+      const end = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay() + 6 - 7))
+      return {
         label: 'presetRangeLabel[i18n].yestoday',
         active: false,
         dateRange: {
@@ -154,8 +154,8 @@ const defaultPresets = function (i18n = defaultI18n) {
     // 上一年
     lastYear: function () {
       const n = new Date()
-      const start = new Date(Date.UTC(n.getFullYear()-1, 0, 1))
-      const end = new Date(Date.UTC(n.getFullYear()-1, 11, 31))
+      const start = new Date(Date.UTC(n.getFullYear() - 1, 0, 1))
+      const end = new Date(Date.UTC(n.getFullYear() - 1, 11, 31))
       return {
         label: presetRangeLabel[i18n].thisYear,
         active: false,
