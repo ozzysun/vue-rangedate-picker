@@ -22,9 +22,11 @@ const presetRangeLabel = {
     thisMonth: 'This Month',
     lastMonth: 'Last Month',
     thisYear: 'This Year', // 今年
-    lastYear: 'Last Year', // 去年
+    lastYear: 'Last Year'
+    /*, // 去年
     lastSevenSays: 'Last 7 Days',
     lastThirtyDays: 'Last 30 Days'
+    */
   },
   TW: {
     today: '今天',
@@ -34,9 +36,11 @@ const presetRangeLabel = {
     thisMonth: '本月',
     lastMonth: '上月',
     thisYear: '今年', // 今年
-    lastYear: '上一年', // 上一年
+    lastYear: '上一年'
+    /*, // 上一年
     lastSevenDays: '前7天',
     lastThirtyDays: '最近30天'
+    */
   }
 }
 
@@ -89,7 +93,7 @@ const defaultPresets = function (i18n = defaultI18n) {
       const start = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay()))
       const end = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay() + 6))
       return {
-        label: presetRangeLabel[i18n].yestoday,
+        label: presetRangeLabel[i18n].thisWeek,
         active: false,
         dateRange: {
           start: start,
@@ -103,7 +107,7 @@ const defaultPresets = function (i18n = defaultI18n) {
       const start = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay() - 7))
       const end = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay() + 6 - 7))
       return {
-        label: presetRangeLabel[i18n].yestoday,
+        label: presetRangeLabel[i18n].lastWeek,
         active: false,
         dateRange: {
           start: start,
@@ -157,14 +161,15 @@ const defaultPresets = function (i18n = defaultI18n) {
       const start = new Date(Date.UTC(n.getFullYear() - 1, 0, 1))
       const end = new Date(Date.UTC(n.getFullYear() - 1, 11, 31))
       return {
-        label: presetRangeLabel[i18n].thisYear,
+        label: presetRangeLabel[i18n].lastYear,
         active: false,
         dateRange: {
           start: start,
           end: end
         }
       }
-    },
+    }
+    /*,
     last7days: function () {
       const n = new Date()
       const start = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - 6))
@@ -191,6 +196,7 @@ const defaultPresets = function (i18n = defaultI18n) {
         }
       }
     }
+    */
   }
 }
 
