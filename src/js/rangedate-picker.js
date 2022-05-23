@@ -70,15 +70,46 @@ const defaultPresets = function (i18n = defaultI18n) {
     },
     // 昨天
     yesterday: function () {
-
+      const n = new Date()
+      // getDate()若為1, getDate() - 1會自動跳到前一個月的最後一天
+      const yesterday = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - 1))
+      return {
+        label: presetRangeLabel[i18n].yestoday,
+        active: false,
+        dateRange: {
+          start: yesterday,
+          end: yesterday
+        }
+      }
     },
     // 本週
     thisWeek: function () {
-
+      const n = new Date()
+      // 以今天的日期減掉getDay()星期幾,即為該週第1天(星期日)的日期
+      const start = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay()))
+      const end = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay()+6))
+      return{
+        label: 'presetRangeLabel[i18n].yestoday',
+        active: false,
+        dateRange: {
+          start: start,
+          end: end
+        }
+      }
     },
     // 上週
     lastWeek: function () {
-
+      const n = new Date()
+      const start = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay()-7))
+      const end = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay()+6-7))
+      return{
+        label: 'presetRangeLabel[i18n].yestoday',
+        active: false,
+        dateRange: {
+          start: start,
+          end: end
+        }
+      }
     },
     thisMonth: function () {
       const n = new Date()
@@ -108,11 +139,31 @@ const defaultPresets = function (i18n = defaultI18n) {
     },
     // 今年
     thisYear: function () {
-
+      const n = new Date()
+      const start = new Date(Date.UTC(n.getFullYear(), 0, 1))
+      const end = new Date(Date.UTC(n.getFullYear(), 11, 31))
+      return {
+        label: presetRangeLabel[i18n].thisYear,
+        active: false,
+        dateRange: {
+          start: start,
+          end: end
+        }
+      }
     },
     // 上一年
     lastYear: function () {
-
+      const n = new Date()
+      const start = new Date(Date.UTC(n.getFullYear()-1, 0, 1))
+      const end = new Date(Date.UTC(n.getFullYear()-1, 11, 31))
+      return {
+        label: presetRangeLabel[i18n].thisYear,
+        active: false,
+        dateRange: {
+          start: start,
+          end: end
+        }
+      }
     },
     last7days: function () {
       const n = new Date()
