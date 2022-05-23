@@ -89,7 +89,7 @@ const defaultPresets = function (i18n = defaultI18n) {
       const start = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay()))
       const end = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay() + 6))
       return {
-        label: 'presetRangeLabel[i18n].yestoday',
+        label: presetRangeLabel[i18n].yestoday,
         active: false,
         dateRange: {
           start: start,
@@ -103,7 +103,7 @@ const defaultPresets = function (i18n = defaultI18n) {
       const start = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay() - 7))
       const end = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - n.getDay() + 6 - 7))
       return {
-        label: 'presetRangeLabel[i18n].yestoday',
+        label: presetRangeLabel[i18n].yestoday,
         active: false,
         dateRange: {
           start: start,
