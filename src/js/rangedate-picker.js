@@ -78,7 +78,7 @@ const defaultPresets = function (i18n = defaultI18n) {
       // getDate()若為1, getDate() - 1會自動跳到前一個月的最後一天
       const yesterday = new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate() - 1))
       return {
-        label: presetRangeLabel[i18n].yestoday,
+        label: presetRangeLabel[i18n].yesterday,
         active: false,
         dateRange: {
           start: yesterday,

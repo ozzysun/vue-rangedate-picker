@@ -154,7 +154,8 @@
   float: left;
   padding: 0 12px;
   border-left: 1px solid #ccc;
-  margin: -2px;
+  margin: -50px; /*將preset往上移*/
+  /*margin: -2px;*/
 }
 
 .calendar-left-mobile {
@@ -227,7 +228,8 @@ li.calendar_days_in-range {
 
 .calendar_preset li.calendar_preset-ranges {
   padding: 0 30px 0 10px;
-  margin-bottom: 5px;
+  /*margin-bottom: 5px;*/
+  margin-bottom: 0px; /*讓preset可以放更多個*/
   cursor: pointer;
   margin-top: 1px;
 }
