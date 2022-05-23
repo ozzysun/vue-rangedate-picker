@@ -426,6 +426,7 @@ export default {
       return (this.dateRange.start && this.dateRange.start.getTime() === currDate.getTime()) ||
         (this.dateRange.end && this.dateRange.end.getTime() === currDate.getTime())
     },
+    // isDateInRange(r, i, 'second', startNextMonthDay, endNextMonthDate)
     isDateInRange (r, i, key, startMonthDay, endMonthDate) {
       const result = this.getDayIndexInMonth(r, i, startMonthDay)
       if (result < 2 || result > endMonthDate) return false
@@ -436,8 +437,12 @@ export default {
       } else {
         currDate = new Date(Date.UTC(this.activeYearEnd, this.startNextActiveMonth, result))
       }
-      return (this.dateRange.start && this.dateRange.start.getTime() < currDate.getTime()) &&
+      const checkResult = (this.dateRange.start && this.dateRange.start.getTime() < currDate.getTime()) &&
         (this.dateRange.end && this.dateRange.end.getTime() > currDate.getTime())
+      if (key === 'second') {
+        console.log(`r=${r} i=${i} key=${key} startMonthDay=${startMonthDay} endMonthDate=${endMonthDate} checkResult=${checkResult}`)
+      }
+      return checkResult
     },
     isDateDisabled (r, i, startMonthDay, endMonthDate) {
       const result = this.getDayIndexInMonth(r, i, startMonthDay)

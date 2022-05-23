@@ -30,11 +30,12 @@
           <ul :class="s.daysWeeks">
               <li v-for="item in shortDaysLocale" :key="item">{{item}}</li>
           </ul>
+          <!-- getDayCell 改i-1修正每月一號顯示inrange問題-->
           <ul v-for="r in 6" :class="[s.days]" :key="r">
             <li :class="[{[s.daysSelected]: isDateSelected(r, i, 'second', startNextMonthDay, endNextMonthDate),
             [s.daysInRange]: isDateInRange(r, i, 'second', startNextMonthDay, endNextMonthDate),
             [s.dateDisabled]: isDateDisabled(r, i, startNextMonthDay, endNextMonthDate)}]"
-                v-for="i in numOfDays" :key="i" v-html="getDayCell(r, i, startNextMonthDay, endNextMonthDate)"
+                v-for="i in numOfDays" :key="i" v-html="getDayCell(r, i-1, startNextMonthDay, endNextMonthDate)"
                   @click="selectSecondItem(r, i)"></li>
           </ul>
         </div>
