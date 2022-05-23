@@ -256,7 +256,7 @@ li.calendar_days_in-range {
   background: #f7931e;
   color: #fff;
   border: none;
-  padding: 5px;
+  padding: 2px;
   font-size: 14px;
 }
 @media (min-width:500px){
