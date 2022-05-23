@@ -429,7 +429,8 @@ export default {
     // isDateInRange(r, i, 'second', startNextMonthDay, endNextMonthDate)
     isDateInRange (r, i, key, startMonthDay, endMonthDate) {
       const result = this.getDayIndexInMonth(r, i, startMonthDay)
-      if (result < 2 || result > endMonthDate) return false
+      // ozzy: result < 2會造成1號不會顯示
+      if (result < 1 || result > (endMonthDate)) return false
 
       let currDate = null
       if (key === 'first') {
@@ -439,9 +440,11 @@ export default {
       }
       const checkResult = (this.dateRange.start && this.dateRange.start.getTime() < currDate.getTime()) &&
         (this.dateRange.end && this.dateRange.end.getTime() > currDate.getTime())
-      if (key === 'second') {
+      /*
+        if (key === 'second') {
         console.log(`r=${r} i=${i} key=${key} startMonthDay=${startMonthDay} endMonthDate=${endMonthDate} checkResult=${checkResult}`)
       }
+      */
       return checkResult
     },
     isDateDisabled (r, i, startMonthDay, endMonthDate) {

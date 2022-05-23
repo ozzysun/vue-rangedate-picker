@@ -30,17 +30,16 @@
           <ul :class="s.daysWeeks">
               <li v-for="item in shortDaysLocale" :key="item">{{item}}</li>
           </ul>
-          <!-- getDayCell 改i-1修正每月一號顯示inrange問題-->
           <ul v-for="r in 6" :class="[s.days]" :key="r">
             <li :class="[{[s.daysSelected]: isDateSelected(r, i, 'second', startNextMonthDay, endNextMonthDate),
             [s.daysInRange]: isDateInRange(r, i, 'second', startNextMonthDay, endNextMonthDate),
             [s.dateDisabled]: isDateDisabled(r, i, startNextMonthDay, endNextMonthDate)}]"
-                v-for="i in numOfDays" :key="i" v-html="getDayCell(r, i-1, startNextMonthDay, endNextMonthDate)"
+                v-for="i in numOfDays" :key="i" v-html="getDayCell(r, i, startNextMonthDay, endNextMonthDate)"
                   @click="selectSecondItem(r, i)"></li>
           </ul>
         </div>
       </div>
-      <div class="calendar-range" :class="{'calendar-range-mobile ': isCompact}" v-if="!showMonth || !isCompact">
+      <div :class="[{'calendar-range-mobile ': isCompact}, 'calendar-range']" v-if="!showMonth || !isCompact">
         <ul class="calendar_preset">
           <li
             class="calendar_preset-ranges"
@@ -162,7 +161,9 @@
 .calendar-left-mobile {
   width: 100% !important;
 }
-
+.calendar-left-mobile li{
+  padding: 0 10px 0 5px;
+}
 .calendar_month_left,
 .calendar_month_right {
   /*float: left;
@@ -198,7 +199,6 @@
   cursor: pointer;
   line-height: 2em;
 }
-
 .calendar_preset li {
   line-height: 2.6em;
   /*width: auto;*/
@@ -222,11 +222,6 @@ li.calendar_days_in-range {
   background: #0096d9;
   color: #fff;
 }
-
-.calendar_preset {
-  padding: 0;
-}
-
 .calendar_preset li.calendar_preset-ranges {
   padding: 0 30px 0 10px;
   /*margin-bottom: 5px;*/
@@ -260,6 +255,10 @@ li.calendar_days_in-range {
   padding: 2px;
   font-size: 14px;
 }
+/* oz preset 不被遮住*/
+  .calendar_preset{
+    padding: 40px;
+  }
 @media (min-width:500px){
   .calendar-wrap {
     width: 75%;
@@ -273,6 +272,10 @@ li.calendar_days_in-range {
   .calendar_month_right {
     float: left;
     width: 43%;
+  }
+  /* oz preset 不超出*/
+  .calendar_preset {
+    padding: 0px;
   }
   .calendar_preset li {
     line-height: 2.6em;
