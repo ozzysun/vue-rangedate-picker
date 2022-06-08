@@ -228,6 +228,7 @@ li.calendar_days_in-range {
   margin-bottom: 0px; /*讓preset可以放更多個*/
   cursor: pointer;
   margin-top: 1px;
+  font-size:15px;
 }
 
 .calendar_preset li.calendar_preset-ranges:hover {
