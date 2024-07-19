@@ -121,7 +121,17 @@
   position: absolute;
   z-index: 9;
 }
-
+.modalMode {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 20px;
+  z-index: 1050;
+  width:320px;
+  overflow-x:hidden;
+  overflow-y: scroll;
+}
 .calendar-head h2 {
   padding: 20px 0 0 20px;
   margin: 0;
@@ -200,7 +210,7 @@
   line-height: 2em;
 }
 .calendar_preset li {
-  line-height: 2.6em;
+  line-height: 2.0em;
   /*width: auto;*/
   display: inline;
 }
@@ -279,7 +289,7 @@ li.calendar_days_in-range {
     padding: 0px;
   }
   .calendar_preset li {
-    line-height: 2.6em;
+    line-height: 2.0em;
     width: auto;
     display: block;
   }
